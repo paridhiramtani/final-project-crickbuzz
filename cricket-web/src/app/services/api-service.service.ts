@@ -18,15 +18,15 @@ interface User {
 export class ApiServiceService {
   private loggedInKey = 'loggedIn'
 
-  baseUrl:string = "http://localhost:8080/livescores"
-  playerUrl:string = "http://localhost:8080/players"
-  pointTableUrl:string = "http://localhost:8080/pointtable"
-  matchesUrl:string = "http://localhost:8080/matches"
-  t20Url:string = "http://localhost:8080/t20"
-  testUrl:string = "http://localhost:8080/test"
-  odiUrl:string = "http://localhost:8080/odi"
-
-  userLoginAPI:string = "http://localhost:8080"
+  // If deploying using Method 1 (Unified), use relative paths:
+  baseUrl:string = "/livescores"
+  playerUrl:string = "/players"
+  pointTableUrl:string = "/pointtable"
+  matchesUrl:string = "/matches"
+  t20Url:string = "/t20"
+  testUrl:string = "/test"
+  odiUrl:string = "/odi"
+  userLoginAPI:string = "" // Empty string results in relative root path
 
   constructor(private http : HttpClient , public router:Router , private jwtHelper: JwtHelperService) { }
 
