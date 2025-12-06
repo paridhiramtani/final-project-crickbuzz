@@ -35,4 +35,14 @@ app.use('/test',test_rank)
 app.use('/matches',matches)
 app.use('/', userLogin)
 
+const path = require('path');
+
+// 1. Serve Static files (The Angular App)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 2. Handle Angular Routing (Send all other requests to index.html)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 module.exports = app
